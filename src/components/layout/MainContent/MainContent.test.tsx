@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { render, screen } from "@testing-library/react";
 import { describe, it, expect, vi, beforeEach } from "vitest";
 import MainContent from "./MainContent";
@@ -44,10 +45,12 @@ describe("MainContent", () => {
     });
 
     render(<MainContent />);
-    
+
     expect(screen.getByTestId("current-skeleton-mock")).toBeInTheDocument();
     expect(screen.getByTestId("daily-skeleton-mock")).toBeInTheDocument();
-    expect(screen.queryByText(/Please try again later/i)).not.toBeInTheDocument();
+    expect(
+      screen.queryByText(/Please try again later/i),
+    ).not.toBeInTheDocument();
   });
 
   it("renders the error message when an error occurs", () => {
@@ -59,10 +62,14 @@ describe("MainContent", () => {
     });
 
     render(<MainContent />);
-    
+
     expect(screen.getByText("Please try again later")).toBeInTheDocument();
-    expect(screen.queryByTestId("current-skeleton-mock")).not.toBeInTheDocument();
-    expect(screen.queryByTestId("current-weather-mock")).not.toBeInTheDocument();
+    expect(
+      screen.queryByTestId("current-skeleton-mock"),
+    ).not.toBeInTheDocument();
+    expect(
+      screen.queryByTestId("current-weather-mock"),
+    ).not.toBeInTheDocument();
   });
 
   it("renders the weather components on success", () => {
@@ -77,9 +84,11 @@ describe("MainContent", () => {
     });
 
     render(<MainContent />);
-    
+
     expect(screen.getByTestId("current-weather-mock")).toBeInTheDocument();
     expect(screen.getByTestId("daily-forecast-mock")).toBeInTheDocument();
-    expect(screen.queryByText(/Please try again later/i)).not.toBeInTheDocument();
+    expect(
+      screen.queryByText(/Please try again later/i),
+    ).not.toBeInTheDocument();
   });
 });
