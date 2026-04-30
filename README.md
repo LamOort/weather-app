@@ -34,3 +34,7 @@ The application will be available at `http://localhost:5173`.
 - **Styling**: SCSS (CSS Modules/Variables)
 - **Icons**: React Icons (Lucide, FontAwesome)
 - **API**: Open-Meteo API
+
+## 🌐 Live preview
+
+- https://weather-forecast-lam-nguyen.netlify.app/
