@@ -1,0 +1,25 @@
+@use "../abstracts" as *;
+
+:root {
+  --ff-primary: "Inter", sans-serif;
+
+  @each $key, $value in $font-sizes {
+    --fs-#{$key}: #{$value};
+  }
+
+  @each $key, $value in $font-weights {
+    --fw-#{$key}: #{$value};
+  }
+
+  @each $key, $value in $colors {
+    --clr-#{$key}: #{$value};
+  }
+
+  @each $key, $value in $spacing {
+    --spacing-#{$key}: #{$value};
+  }
+
+  @each $key, $value in $radius {
+    --radius-#{$key}: #{$value};
+  }
+}
