@@ -32,5 +32,5 @@ The application will be available at `http://localhost:5173`.
 - **Frontend**: React 19, TypeScript, Vite
 - **State Management**: TanStack Query (React Query)
 - **Styling**: SCSS (CSS Modules/Variables)
-- **Icons**: React Icons (Fa, Lu)
+- **Icons**: React Icons (Lucide, FontAwesome)
 - **API**: Open-Meteo API
