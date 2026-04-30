@@ -12,6 +12,7 @@
       "DOM"
     ],
     "module": "esnext",
+    "types": ["node", "react", "react-dom"],
     "skipLibCheck": true,
     /* Bundler mode */
     "moduleResolution": "bundler",
