@@ -12,10 +12,6 @@
       "DOM"
     ],
     "module": "esnext",
-    "types": [],
-    "typeRoots": [
-      "./node_modules/@types"
-    ],
     "skipLibCheck": true,
     /* Bundler mode */
     "moduleResolution": "bundler",
