@@ -1,8 +1,7 @@
-import { useContext } from "react";
 import { render, screen, act } from "@testing-library/react";
 import { describe, it, expect } from "vitest";
-import { WeatherProvider } from "../WeatherProvider";
-import WeatherContext from "../WeatherContext";
+import { WeatherProvider } from "./WeatherProvider";
+import { useWeatherContext } from "./WeatherContext";
 
 const TestConsumer = () => {
   const {
@@ -14,7 +13,7 @@ const TestConsumer = () => {
     setTimezone,
     locationName,
     setLocationName,
-  } = useContext(WeatherContext);
+  } = useWeatherContext();
 
   return (
     <div>
@@ -23,10 +22,16 @@ const TestConsumer = () => {
       <div data-testid="unit">{unit}</div>
       <div data-testid="timezone">{timezone}</div>
       <div data-testid="locationName">{locationName}</div>
-      <button onClick={() => setCoord({ lat: 10, lon: 20 })}>Update Coord</button>
+      <button onClick={() => setCoord({ lat: 10, lon: 20 })}>
+        Update Coord
+      </button>
       <button onClick={() => setUnit("fahrenheit")}>Update Unit</button>
-      <button onClick={() => setTimezone("America/New_York")}>Update Timezone</button>
-      <button onClick={() => setLocationName("New York")}>Update Location</button>
+      <button onClick={() => setTimezone("America/New_York")}>
+        Update Timezone
+      </button>
+      <button onClick={() => setLocationName("New York")}>
+        Update Location
+      </button>
     </div>
   );
 };
@@ -36,14 +41,14 @@ describe("WeatherProvider Component", () => {
     render(
       <WeatherProvider>
         <TestConsumer />
-      </WeatherProvider>
+      </WeatherProvider>,
     );
 
     expect(screen.getByTestId("lat").textContent).toBe("0");
     expect(screen.getByTestId("lon").textContent).toBe("0");
     expect(screen.getByTestId("unit").textContent).toBe("celsius");
     expect(screen.getByTestId("locationName").textContent).toBe("");
-    
+
     // Timezone should be a string, not empty
     expect(screen.getByTestId("timezone").textContent).not.toBe("");
   });
@@ -52,7 +57,7 @@ describe("WeatherProvider Component", () => {
     render(
       <WeatherProvider>
         <TestConsumer />
-      </WeatherProvider>
+      </WeatherProvider>,
     );
 
     // Update Coord
