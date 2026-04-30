@@ -44,10 +44,10 @@ describe("WeatherProvider Component", () => {
       </WeatherProvider>,
     );
 
-    expect(screen.getByTestId("lat").textContent).toBe("0");
-    expect(screen.getByTestId("lon").textContent).toBe("0");
+    expect(screen.getByTestId("lat").textContent).toBe("60.2052");
+    expect(screen.getByTestId("lon").textContent).toBe("24.6522");
     expect(screen.getByTestId("unit").textContent).toBe("celsius");
-    expect(screen.getByTestId("locationName").textContent).toBe("");
+    expect(screen.getByTestId("locationName").textContent).toBe("Espoo");
 
     // Timezone should be a string, not empty
     expect(screen.getByTestId("timezone").textContent).not.toBe("");
