@@ -8,14 +8,14 @@ type WeatherProviderProps = {
 
 export const WeatherProvider = ({ children }: WeatherProviderProps) => {
   const [coord, setCoord] = useState<{ lat: number; lon: number }>({
-    lat: 0,
-    lon: 0,
+    lat: 60.2052, //default coordidate is Espoo, Finland
+    lon: 24.6522,
   });
   const [unit, setUnit] = useState<"celsius" | "fahrenheit">("celsius");
   const [timezone, setTimezone] = useState(
     Intl.DateTimeFormat().resolvedOptions().timeZone,
   );
-  const [locationName, setLocationName] = useState("");
+  const [locationName, setLocationName] = useState("Espoo");
 
   const value = useMemo(
     () => ({
