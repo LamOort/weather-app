@@ -35,7 +35,7 @@
   }
 
   &[data-pressed] {
-    background-color: red;
+    background-color: var(--clr-primary);
     color: var(--clr-white);
     box-shadow: 0 1px 3px var(--clr-primary-40);
   }
