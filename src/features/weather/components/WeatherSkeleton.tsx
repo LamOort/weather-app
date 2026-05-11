@@ -1,24 +1,24 @@
-import "./WeatherSkeleton.scss";
+import styles from "./WeatherSkeleton.module.scss";
 
 export const CurrentWeatherSkeleton = () => {
   return (
-    <div className="weather-skeleton weather-skeleton--current">
-      <div className="weather-skeleton__header">
-        <div className="weather-skeleton__block weather-skeleton__block--title"></div>
-        <div className="weather-skeleton__block weather-skeleton__block--subtitle"></div>
+    <div className={`${styles.skeleton} ${styles.current}`}>
+      <div className={styles.header}>
+        <div className={`${styles.block} ${styles.title}`}></div>
+        <div className={`${styles.block} ${styles.subtitle}`}></div>
       </div>
       
-      <div className="weather-skeleton__main">
-        <div className="weather-skeleton__block weather-skeleton__block--temp"></div>
-        <div className="weather-skeleton__info">
-          <div className="weather-skeleton__block weather-skeleton__block--desc"></div>
-          <div className="weather-skeleton__block weather-skeleton__block--feels"></div>
+      <div className={styles.main}>
+        <div className={`${styles.block} ${styles.temp}`}></div>
+        <div className={styles.info}>
+          <div className={`${styles.block} ${styles.desc}`}></div>
+          <div className={`${styles.block} ${styles.feels}`}></div>
         </div>
       </div>
       
-      <div className="weather-skeleton__stats">
-        <div className="weather-skeleton__block weather-skeleton__block--stat"></div>
-        <div className="weather-skeleton__block weather-skeleton__block--stat"></div>
+      <div className={styles.stats}>
+        <div className={`${styles.block} ${styles.stat}`}></div>
+        <div className={`${styles.block} ${styles.stat}`}></div>
       </div>
     </div>
   );
@@ -26,15 +26,15 @@ export const CurrentWeatherSkeleton = () => {
 
 export const DailyForecastSkeleton = () => {
   return (
-    <div className="weather-skeleton weather-skeleton--daily">
-      <div className="weather-skeleton__block weather-skeleton__block--daily-title"></div>
+    <div className={`${styles.skeleton} ${styles.daily}`}>
+      <div className={`${styles.block} ${styles.dailyTitle}`}></div>
       
-      <div className="weather-skeleton__daily-cards">
+      <div className={styles.dailyCards}>
         {[...Array(7)].map((_, i) => (
-          <div key={i} className="weather-skeleton__daily-card">
-            <div className="weather-skeleton__block weather-skeleton__block--card-sm"></div>
-            <div className="weather-skeleton__block weather-skeleton__block--card-icon"></div>
-            <div className="weather-skeleton__block weather-skeleton__block--card-sm"></div>
+          <div key={i} className={styles.dailyCard}>
+            <div className={`${styles.block} ${styles.cardSm}`}></div>
+            <div className={`${styles.block} ${styles.cardIcon}`}></div>
+            <div className={`${styles.block} ${styles.cardSm}`}></div>
           </div>
         ))}
       </div>

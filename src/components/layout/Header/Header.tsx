@@ -1,9 +1,9 @@
-import "./Header.scss";
+import styles from "./Header.module.scss";
 
 const Header = ({ children }: { children: React.ReactNode }) => {
   return (
-    <header className="header">
-      <div className="header-inner">{children}</div>
+    <header className={styles.header}>
+      <div className={styles.inner}>{children}</div>
     </header>
   );
 };

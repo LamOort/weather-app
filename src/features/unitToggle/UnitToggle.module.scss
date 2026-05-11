@@ -1,6 +1,4 @@
-@use "@/styles/abstracts" as *;
-
-.unit-toggle {
+.group {
   display: inline-flex;
   align-items: center;
   gap: var(--spacing-1);
@@ -10,7 +8,7 @@
   border: 1px solid var(--clr-border);
 }
 
-.unit-toggle__btn {
+.btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;

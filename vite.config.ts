@@ -12,6 +12,13 @@ export default defineConfig({
       "@": path.resolve(__dirname, "./src"),
     },
   },
+  css: {
+    preprocessorOptions: {
+      scss: {
+        additionalData: `@use "@/styles/abstracts" as *;\n`,
+      },
+    },
+  },
   test: {
     globals: true,
     environment: "jsdom",

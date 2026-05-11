@@ -4,7 +4,7 @@ import { useSearch } from "./useSearch";
 import { useWeatherContext } from "@/context/WeatherContext";
 import { FaSearch } from "react-icons/fa";
 
-import "./Search.scss";
+import styles from "./Search.module.scss";
 
 const Search = () => {
   const { searchValue, setSearchValue, searchResults, isFetching, status } =
@@ -20,29 +20,29 @@ const Search = () => {
       onValueChange={(nextValue) => setSearchValue(nextValue)}
       itemToStringValue={(item: Location) => item.name}
     >
-      <label className="search-wrapper">
+      <label className={styles.wrapper}>
         <FaSearch
-          className="search-icon"
+          className={styles.icon}
           color="var(--clr-slate-400)"
           size={14}
         />
         <Autocomplete.Input
-          className="search-input"
+          className={styles.input}
           placeholder="Search for a city or town"
         />
       </label>
 
       <Autocomplete.Portal hidden={isSearchResultHidden}>
         <Autocomplete.Positioner
-          className="search-positioner"
+          className={styles.positioner}
           sideOffset={4}
           align="start"
         >
-          <Autocomplete.Popup className="search-popup">
+          <Autocomplete.Popup className={styles.popup}>
             <Autocomplete.Status>
               {status && (
-                <div className="search-status">
-                  {isFetching && <span className="search-spinner" />}
+                <div className={styles.status}>
+                  {isFetching && <span className={styles.spinner} />}
                   {status}
                 </div>
               )}
@@ -50,7 +50,7 @@ const Search = () => {
             <Autocomplete.List>
               {(location: Location) => (
                 <Autocomplete.Item
-                  className="search-item"
+                  className={styles.item}
                   key={location.id}
                   value={location}
                   onClick={() => {
@@ -62,8 +62,8 @@ const Search = () => {
                     setLocationName(location.name);
                   }}
                 >
-                  <span className="search-item__name">{location.name}</span>
-                  <span className="search-item__country">
+                  <span className={styles.name}>{location.name}</span>
+                  <span className={styles.country}>
                     {location.admin1 ? `${location.admin1}, ` : ""}
                     {location.country}
                   </span>
