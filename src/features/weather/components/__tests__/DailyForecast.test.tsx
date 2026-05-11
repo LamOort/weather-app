@@ -1,6 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import { describe, it, expect, vi, beforeEach, afterEach } from "vitest";
 import DailyForecast from "../DailyForecast";
+import styles from "../DailyForecast.module.scss";
 
 describe("DailyForecast Component", () => {
   beforeEach(() => {
@@ -34,7 +35,7 @@ describe("DailyForecast Component", () => {
     const { container } = render(<DailyForecast data={mockData} />);
 
     // Query cards by class
-    const cards = container.querySelectorAll(".day-card");
+    const cards = container.querySelectorAll(`.${styles.dayCard}`);
     expect(cards.length).toBe(2);
   });
 
@@ -57,7 +58,7 @@ describe("DailyForecast Component", () => {
   it("renders cleanly without crashing when an empty array is provided", () => {
     const { container } = render(<DailyForecast data={[]} />);
 
-    const cards = container.querySelectorAll(".day-card");
+    const cards = container.querySelectorAll(`.${styles.dayCard}`);
     expect(cards.length).toBe(0);
   });
 });

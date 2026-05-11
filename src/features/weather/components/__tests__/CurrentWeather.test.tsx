@@ -1,6 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import { describe, it, expect, vi } from "vitest";
 import CurrentWeather from "../CurrentWeather";
+import styles from "../CurrentWeather.module.scss";
 
 // Mock the weatherCodeToString utility so we know exactly what it returns
 vi.mock("../../utils/weatherCodeToString", () => ({
@@ -65,14 +66,14 @@ describe("CurrentWeather Component", () => {
     const { container: dayContainer } = render(
       <CurrentWeather location="Day City" isDay={true} />,
     );
-    expect(dayContainer.firstChild).toHaveClass("current--day");
-    expect(dayContainer.firstChild).not.toHaveClass("current--night");
+    expect(dayContainer.firstChild).toHaveClass(styles.day);
+    expect(dayContainer.firstChild).not.toHaveClass(styles.night);
 
     const { container: nightContainer } = render(
       <CurrentWeather location="Night City" isDay={false} />,
     );
-    expect(nightContainer.firstChild).toHaveClass("current--night");
-    expect(nightContainer.firstChild).not.toHaveClass("current--day");
+    expect(nightContainer.firstChild).toHaveClass(styles.night);
+    expect(nightContainer.firstChild).not.toHaveClass(styles.day);
   });
 
   it("formats the time string correctly", () => {
