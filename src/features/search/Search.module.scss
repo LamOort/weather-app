@@ -1,18 +1,16 @@
-@use "@/styles/abstracts" as *;
-
-.search-wrapper {
+.wrapper {
   position: relative;
   display: inline-flex;
   align-items: center;
 }
 
-.search-icon {
+.icon {
   position: absolute;
   left: 0.875rem;
   pointer-events: none;
 }
 
-.search-input {
+.input {
   box-sizing: border-box;
   padding-inline: 2.25rem 0.875rem;
   margin: 0;
@@ -40,12 +38,12 @@
   }
 }
 
-.search-positioner {
+.positioner {
   outline: 0;
   z-index: 50;
 }
 
-.search-popup {
+.popup {
   box-sizing: border-box;
   padding-block: var(--spacing-2);
   border-radius: var(--radius-md-sm);
@@ -65,7 +63,7 @@
 
 // ─── Items ────────────────────────────────────────────────────────────────────
 
-.search-item {
+.item {
   box-sizing: border-box;
   outline: 0;
   cursor: pointer;
@@ -93,24 +91,24 @@
       z-index: -1;
     }
 
-    .search-item__country {
+    .country {
       color: var(--clr-white-75);
     }
   }
 }
 
-.search-item__name {
+.name {
   font-weight: var(--fw-bold);
 }
 
-.search-item__country {
+.country {
   font-size: var(--fs-xs);
   color: var(--clr-text-secondary);
 }
 
 // ─── Status ───────────────────────────────────────────────────────────────────
 
-.search-status {
+.status {
   display: flex;
   align-items: center;
   gap: var(--spacing-2);
@@ -122,7 +120,7 @@
 
 // ─── Spinner ──────────────────────────────────────────────────────────────────
 
-.search-spinner {
+.spinner {
   box-sizing: border-box;
   flex-shrink: 0;
   width: var(--spacing-4);
@@ -130,10 +128,10 @@
   border: 2px solid var(--clr-border);
   border-top-color: var(--clr-text-secondary);
   border-radius: var(--radius-full);
-  animation: search-spin 0.8s linear infinite;
+  animation: spin 0.8s linear infinite;
 }
 
-@keyframes search-spin {
+@keyframes spin {
   to {
     transform: rotate(360deg);
   }

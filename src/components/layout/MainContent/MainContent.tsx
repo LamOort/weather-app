@@ -10,7 +10,7 @@ import {
   DailyForecastSkeleton,
 } from "@/features/weather/components/WeatherSkeleton";
 
-import "./MainContent.scss";
+import styles from "./MainContent.module.scss";
 
 const MainContent = () => {
   const { coord, timezone, locationName, unit } = useWeatherContext();
@@ -58,7 +58,7 @@ const MainContent = () => {
   const isShowedCurrentWeatherAndDailyForecast = !isFetching && isSuccess;
 
   return (
-    <main className="main">
+    <main className={styles.main}>
       {isFetching ? (
         <>
           <section className="current-card">
@@ -70,7 +70,7 @@ const MainContent = () => {
         </>
       ) : null}
 
-      {isError && <p className="main__error">Please try again later</p>}
+      {isError && <p className={styles.error}>Please try again later</p>}
 
       {isShowedCurrentWeatherAndDailyForecast ? (
         <>

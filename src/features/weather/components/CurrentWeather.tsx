@@ -4,7 +4,7 @@ import type { CurrentUnits } from "@/api/types";
 import { LuDroplet } from "react-icons/lu";
 import { FaMapMarkerAlt } from "react-icons/fa";
 
-import "./CurrentWeather.scss";
+import styles from "./CurrentWeather.module.scss";
 
 type Props = {
   location: string;
@@ -40,50 +40,50 @@ const CurrentWeather = ({
   const formatted = `${datePart} • ${timePart}`;
 
   return (
-    <div className={`current ${isDay ? "current--day" : "current--night"}`}>
-      <div className="current__header">
-        <div className="current__header-content">
-          <div className="current__location-wrapper">
-            <FaMapMarkerAlt className="current__location-icon" />
-            <span className="current__location">{location}</span>
+    <div className={`${styles.current} ${isDay ? styles.day : styles.night}`}>
+      <div className={styles.header}>
+        <div className={styles.headerContent}>
+          <div className={styles.locationWrapper}>
+            <FaMapMarkerAlt className={styles.locationIcon} />
+            <span className={styles.location}>{location}</span>
           </div>
-          <div className="current__time">{formatted}</div>
+          <div className={styles.time}>{formatted}</div>
         </div>
-        <div className="current__weather-icon">
+        <div className={styles.weatherIcon}>
           <WeatherIcon code={weatherCode} isDay={isDay} size={200} />
         </div>
       </div>
 
-      <div className="current__main">
-        <div className="current__temp-wrapper">
-          <span className="current__temp">
+      <div className={styles.main}>
+        <div className={styles.tempWrapper}>
+          <span className={styles.temp}>
             {temperature !== undefined ? Math.round(temperature) : "--"}
           </span>
-          <span className="current__unit">{units?.temperature_2m || "°"}</span>
+          <span className={styles.unit}>{units?.temperature_2m || "°"}</span>
         </div>
 
-        <div className="current__info">
-          <div className="current__desc">
+        <div className={styles.info}>
+          <div className={styles.desc}>
             {weatherCode !== undefined
               ? weatherCodeToString(weatherCode)
               : "--"}
           </div>
-          <div className="current__feels-like">
+          <div className={styles.feelsLike}>
             Feels like {feelsLike !== undefined ? Math.round(feelsLike) : "--"}
             {units?.apparent_temperature || "°"}
           </div>
         </div>
       </div>
 
-      <div className="current__stats">
-        <div className="current__stat">
-          <LuDroplet className="current__stat-icon" />
-          <div className="current__stat-readable">
-            <span className="current__stat-value">
+      <div className={styles.stats}>
+        <div className={styles.stat}>
+          <LuDroplet className={styles.statIcon} />
+          <div className={styles.statReadable}>
+            <span className={styles.statValue}>
               {precipitation !== undefined ? precipitation : "--"}
               {units?.precipitation}
             </span>
-            <span className="current__stat-label">Precipitation</span>
+            <span className={styles.statLabel}>Precipitation</span>
           </div>
         </div>
       </div>

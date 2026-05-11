@@ -1,18 +1,18 @@
 import type { FallbackProps } from "react-error-boundary";
 import { MdErrorOutline } from "react-icons/md";
 
-import "./ErrorFallback.scss";
+import styles from "./ErrorFallback.module.scss";
 
 const ErrorFallback = ({ resetErrorBoundary }: FallbackProps) => {
   return (
-    <div className="error-fallback" role="alert">
-      <MdErrorOutline className="error-fallback__icon" />
-      <h1 className="error-fallback__title">Something went wrong</h1>
-      <p className="error-fallback__message">
+    <div className={styles.container} role="alert">
+      <MdErrorOutline className={styles.icon} />
+      <h1 className={styles.title}>Something went wrong</h1>
+      <p className={styles.message}>
         An unexpected error occurred. Please try again.
       </p>
       <button
-        className="error-fallback__btn"
+        className={styles.btn}
         type="button"
         onClick={resetErrorBoundary}
       >
